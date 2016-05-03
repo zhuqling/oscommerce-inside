@@ -1,3 +1,5 @@
-# My Awesome Book
+# osCommerce 深度探密
 
-This file file serves as your book's preface, a great place to describe your book's content and ideas.
+本书所讨论的主题是采用osCommerce开源项目的电子商务B2C模式（读者需要对osCommerce有一定了解，osCommerce的基本操作请参考其他书籍），对于B2C所涉及的重要概念，书中都有重点讲解，同时对实现代码进行了深入分析，同时着重讲解了如何编写自定义模块，如果你是PHP程序员，现在进行osCommerce（或者基于osCommerce的所有系统，如ZenCart等）开发，或正进行B2C模式研究，又或者对B2C模式感兴趣，本书对您将非常有帮助。
+
+本书还对Paypal在线支付技术、Paypal IPN进行了详细介绍，对Paypal开发有疑问的读者可以参考本书。
