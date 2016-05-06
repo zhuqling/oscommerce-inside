@@ -781,5 +781,5 @@ configuration_group_id, sort_order, date_added) values ('Money Type',
 | 订单总金额 | v_amount | 订单实际支付金额 |
 | 币种 | v_moneytype | 订单实际支付币种 |
 | 备注字段 1 | remark1 |  |
-| 备注字段 2 |remark2 |  |
+| 备注字段 2 | remark2 |  |
 

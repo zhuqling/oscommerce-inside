@@ -23,7 +23,6 @@
     * [自制URL SEO类](url_seo.md)
 * [osCommerce的模板化改造]()
     * [STS](sts.md)
-    * [BTS](bts.md)
     * [Smarty](smarty.md)
 * [osCommerce基础](basic.md)
     * [基础类](class.md)
