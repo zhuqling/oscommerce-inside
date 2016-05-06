@@ -9,30 +9,30 @@ Smarty 在处理界面时使用了一套自己的语法,使得美工等界面开
 首先让我们了解一下 Smarty 使用方法。下面通过一个例子开始。
 
 ```php
-require_once ‘includes/smarty/smarty.class.php’; // 我们假设 Smarty 库存放在 ”includes/smarty/”目录下
+require_once 'includes/smarty/smarty.class.php’; // 我们假设 Smarty 库存放在 ”includes/smarty/”目录下
 
 $smarty = new Smarty(); // 初始化 Smarty 对象
-$smarty->template_dir = ‘includes/template’; // 设置模块文件所在目录 
+$smarty->template_dir = 'includes/template’; // 设置模块文件所在目录 
 $smarty->compile_dir =’includes/template_c/’; // 设置模块编译文件所在目录 
-$smarty->cache_dir = ‘includes/cache_dir/’; // 设置缓存文件所在目录 
-$smarty->config_dir = ‘includes/config_dir/’; // 设置配置文件所在目录 
-$smarty->plugins_dir = array(‘includes/plugins/’,'plugins'); // 设置插件文件所在目录 
-//上面的五个目录设置,最上面两个为必填,且目录必须真实存在,其它三个目录为可选项可以省略 $user_name = ‘Jason Chuh’;
+$smarty->cache_dir = 'includes/cache_dir/’; // 设置缓存文件所在目录 
+$smarty->config_dir = 'includes/config_dir/’; // 设置配置文件所在目录 
+$smarty->plugins_dir = array('includes/plugins/’,'plugins'); // 设置插件文件所在目录 
+//上面的五个目录设置,最上面两个为必填,且目录必须真实存在,其它三个目录为可选项可以省略 $user_name = 'Jason Chuh’;
 
 // 赋值到模板
 $smarty->assign('name',$user_name); // 文本类型
-$attribute = array(‘age’=>20,’ gender’ =>’male’); $smarty->assign('attribute', $attribute); // 数组也可以传递
-$person = new Obj_Person(); // 此处假设 Obj_Person 类已存在 $person.name = ‘Jason’;
-$person.age = ‘20’;
+$attribute = array('age’=>20,’ gender’ =>’male’); $smarty->assign('attribute', $attribute); // 数组也可以传递
+$person = new Obj_Person(); // 此处假设 Obj_Person 类已存在 $person.name = 'Jason’;
+$person.age = '20’;
 $smarty->assign('person', $attribute); // 传递对象都没问题
 
 // 显示模板文件
-$smarty->display(‘template_test.tpl’); // 文件名的后缀可以随意设置,Smarty 默认使用“tpl ”作为模板文件的扩展名
+$smarty->display('template_test.tpl’); // 文件名的后缀可以随意设置,Smarty 默认使用“tpl ”作为模板文件的扩展名
 ```
 
 模块文件 includes/template/template_test.tpl
 
-```smarty
+```html
 <h1>显示文本</h1>
 Name: {$name}
 {* 这里是注释 *}
@@ -52,13 +52,13 @@ Smarty 的初始化需要在每个单独的文件执行前执行,所以 Smarty �
 预处理文件 includes/application_top.php
 
 ```php
-require_once ‘includes/smarty/smarty.class.php’;
+require_once 'includes/smarty/smarty.class.php’;
 $smarty = new Smarty();
-$smarty->template_dir = ‘includes/template/’;
+$smarty->template_dir = 'includes/template/’;
 $smarty->compile_dir =’includes/template_c/’;
-$smarty->cache_dir = ‘includes/cache_dir/’;
-$smarty->config_dir = ‘includes/config_dir/’;
-$smarty->plugins_dir = array(‘includes/plugins/’,'plugins');
+$smarty->cache_dir = 'includes/cache_dir/’;
+$smarty->config_dir = 'includes/config_dir/’;
+$smarty->plugins_dir = array('includes/plugins/’,'plugins');
 ```
 
 #### Smarty的赋值
@@ -97,21 +97,26 @@ function smarty_display_tpl($smarty, $filename) {
   $smarty->assign('breadcrumbs',$breadcrumb->trail(BREADCRUMB_SEPARATOR)); // 面包屑 导航的显示
   $title=$breadcrumb->Currents(); 
   $smarty->assign('title', $title); // 标题
-  if (tep_session_is_registered('customer_id')) { // 区分用户登录情况,显示不同的内容 $smarty->assign('myaccount’, '<a href=' . tep_href_link(FILENAME_ACCOUNT, '', 'SSL') . ' class="headerNavigation">' . HEADER_TITLE_MY_ACCOUNT . '</a>'); $smarty->assign('urlmyaccount’, tep_href_link(FILENAME_ACCOUNT, '', 'SSL')); $smarty->assign('logoff','<a href=' . tep_href_link(FILENAME_LOGOFF, '', 'SSL') . ' class="headerNavigation">' . HEADER_TITLE_LOGOFF . '</a>'); 
-  $smarty->assign('urllogoff', tep_href_link(FILENAME_LOGOFF, '', 'SSL')); $smarty->assign('urlcartcontents’, tep_href_link(FILENAME_SHOPPING_CART, '', 'SSL'));
-  $smarty->assign('myaccountlogoff', $smarty->get_template_vars('myaccount') . " | " . $smarty->get_template_vars(‘logoff'));
-  $smarty->assign('loginofflogo', '<a href=' . tep_href_link(FILENAME_LOGOFF, '', 'SSL') . ' class="headerNavigation">' . tep_image(TEMPLATE_DIR.'images/'.$language . '/header_logoff.gif', HEADER_TITLE_LOGOFF) . '</a>'); // TEMPLATE_DIR 为模板目录
+
+  if (tep_session_is_registered('customer_id')) {
+    // 区分用户登录情况,显示不同的内容
+    $smarty->assign('myaccount’, '<a href=' . tep_href_link(FILENAME_ACCOUNT, '', 'SSL') . ' class="headerNavigation">' . HEADER_TITLE_MY_ACCOUNT . '</a>');
+    $smarty->assign('urlmyaccount’, tep_href_link(FILENAME_ACCOUNT, '', 'SSL')); $smarty->assign('logoff','<a href=' . tep_href_link(FILENAME_LOGOFF, '', 'SSL') . ' class="headerNavigation">' . HEADER_TITLE_LOGOFF . '</a>'); 
+    $smarty->assign('urllogoff', tep_href_link(FILENAME_LOGOFF, '', 'SSL'));
+    $smarty->assign('urlcartcontents’, tep_href_link(FILENAME_SHOPPING_CART, '', 'SSL'));
+    $smarty->assign('myaccountlogoff', $smarty->get_template_vars('myaccount') . " | " . $smarty->get_template_vars('logoff'));
+    $smarty->assign('loginofflogo', '<a href=' . tep_href_link(FILENAME_LOGOFF, '', 'SSL') . ' class="headerNavigation">' . tep_image(TEMPLATE_DIR.'images/'.$language . '/header_logoff.gif', HEADER_TITLE_LOGOFF) . '</a>'); // TEMPLATE_DIR 为模板目录
   } else {
-  $smarty->assign('myaccount’, '<a href=' . tep_href_link(FILENAME_ACCOUNT, '', 'SSL') . ' class="headerNavigation">' . HEADER_TITLE_MY_ACCOUNT . '</a>'); $smarty->assign('urlmyaccount’, tep_href_link(FILENAME_ACCOUNT, '', 'SSL')); $smarty->assign('logoff','');
-  $smarty->assign('urllogoff', '');
-  $smarty->assign('urlcartcontents’, tep_href_link(FILENAME_SHOPPING_CART, '',
-  'SSL'));
-  $smarty->assign('urlcheckout’, tep_href_link(FILENAME_CHECKOUT_SHIPPING, '',
-  'SSL'));
-           $smarty->assign('myaccountlogoff',
-  $smarty->get_template_vars('myaccount'));
-  $smarty->assign('loginofflogo', '<a href=' . tep_href_link(FILENAME_ LOGIN, '', 'SSL') . ' class="headerNavigation">' . tep_image(TEMPLATE_DIR.'images/'.$language . '/header_ login.gif', HEADER_TITLE_ LOGIN) . '</a>');
+    $smarty->assign('myaccount’, '<a href=' . tep_href_link(FILENAME_ACCOUNT, '', 'SSL') . ' class="headerNavigation">' . HEADER_TITLE_MY_ACCOUNT . '</a>'); $smarty->assign('urlmyaccount’, tep_href_link(FILENAME_ACCOUNT, '', 'SSL')); $smarty->assign('logoff','');
+    $smarty->assign('urllogoff', '');
+    $smarty->assign('urlcartcontents’, tep_href_link(FILENAME_SHOPPING_CART, '',
+    'SSL'));
+    $smarty->assign('urlcheckout’, tep_href_link(FILENAME_CHECKOUT_SHIPPING, '',
+    'SSL'));
+    $smarty->assign('myaccountlogoff', $smarty->get_template_vars('myaccount'));
+    $smarty->assign('loginofflogo', '<a href=' . tep_href_link(FILENAME_ LOGIN, '', 'SSL') . ' class="headerNavigation">' . tep_image(TEMPLATE_DIR.'images/'.$language . '/header_ login.gif', HEADER_TITLE_ LOGIN) . '</a>');
   }
+
   $smarty->assign('cartcontents’, $cart->trail());// 购物车的显示
   $smarty->assign ('urlcartcontents',tep_href_link(FILENAME_SHOPPING_CART, '', 'SSL'));// 购物车链接
   $smarty->assign('checkout’, '<a href=' . tep_href_link(FILENAME_CHECKOUT_SHIPPING, '', 'SSL') . ' class="headerNavigation">' . HEADER_TITLE_CHECKOUT . '</a>');//付款 链接
@@ -130,8 +135,7 @@ function smarty_display_tpl($smarty, $filename) {
   ob_start();
   echo "\n<!-- Start Category Menu -->\n";
   echo tep_draw_form('goto', FILENAME_DEFAULT, 'get', '');
-  echo tep_draw_pull_down_menu('cPath', tep_get_category_tree(),
-$current_category_id, 'onChange="this.form.submit();"');
+  echo tep_draw_pull_down_menu('cPath', tep_get_category_tree(), $current_category_id, 'onChange="this.form.submit();"');
   echo "</form>\n";
   echo "<!-- End Category Menu -->\n";
   $smarty->assign('catmenu’, ob_get_clean()); // 产品分类菜单
@@ -238,8 +242,8 @@ $current_category_id, 'onChange="this.form.submit();"');
     $smarty->assign('reviewsbox', ='');
   }
 
-  $smarty->assign(‘IMAGE_GIF_PIXEL_100_PERCENT’,tep_draw_separator('pixel_trans.gif', '100%', '10'));
-  $smarty->assign(‘IMAGE_GIF_PIXEL_10_PIXEL’,tep_draw_separator('pixel_trans.gif','10', '1'));
+  $smarty->assign('IMAGE_GIF_PIXEL_100_PERCENT’,tep_draw_separator('pixel_trans.gif', '100%', '10'));
+  $smarty->assign('IMAGE_GIF_PIXEL_10_PIXEL’,tep_draw_separator('pixel_trans.gif','10', '1'));
 
   // 允许调用时省略模板的扩展名
   if(false === strpos($filename,'.')) $filename .= '.tpl'; $smarty->display($filename); // 显示模板文件
@@ -260,7 +264,7 @@ $product_info = tep_db_fetch_array($product_info_query);
 if(false == $product_info) { // 找不到产品
   $smarty->assign('product_info' , false);
   $smarty->assign('BOX_PRODUCT_NOT_FOUND', new infoBox(array(array('text' => TEXT_PRODUCT_NOT_FOUND))));
-  $smarty->assign(‘url_continue’, '<a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . tep_image_button('button_continue.gif', IMAGE_BUTTON_CONTINUE) . '</a>');
+  $smarty->assign('url_continue’, '<a href="' . tep_href_link(FILENAME_DEFAULT) . '">' . tep_image_button('button_continue.gif', IMAGE_BUTTON_CONTINUE) . '</a>');
 } else {
   tep_db_query("update " . TABLE_PRODUCTS_DESCRIPTION . " set products_viewed = products_viewed+1 where products_id = '" . (int)$HTTP_GET_VARS['products_id'] . "' and language_id = '" . (int)$languages_id . "'"); // 刷新产品浏览次数
   if ($new_price = tep_get_products_special_price($product_info['products_id'])) {
@@ -286,31 +290,31 @@ if ((USE_CACHE == 'true') && empty($SID)) {
   include(DIR_WS_MODULES . FILENAME_ALSO_PURCHASED_PRODUCTS);
 }
 
-$smarty->assign(‘also_purchase’,ob_get_clean());
-$smarty->assign(‘url_product_review’,'<a href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS, tep_get_all_get_params()) . '">' . tep_image_button('button_reviews.gif', IMAGE_BUTTON_REVIEWS) . '</a>'); $smarty->assign(‘button_submit’, tep_draw_hidden_field('products_id', $product_info['products_id']) . tep_image_submit('button_in_cart.gif', IMAGE_BUTTON_IN_CART));
+$smarty->assign('also_purchase’,ob_get_clean());
+$smarty->assign('url_product_review’,'<a href="' . tep_href_link(FILENAME_PRODUCT_REVIEWS, tep_get_all_get_params()) . '">' . tep_image_button('button_reviews.gif', IMAGE_BUTTON_REVIEWS) . '</a>'); $smarty->assign('button_submit’, tep_draw_hidden_field('products_id', $product_info['products_id']) . tep_image_submit('button_in_cart.gif', IMAGE_BUTTON_IN_CART));
 
 // 产品编辑时间
 if ($product_info['products_date_available'] > date('Y-m-d H:i:s')) {
-  $smarty->assign(‘product_date’, sprintf(TEXT_DATE_AVAILABLE,
+  $smarty->assign('product_date’, sprintf(TEXT_DATE_AVAILABLE,
   tep_date_long($product_info['products_date_available'])));
 } else {
-  $smarty->assign(‘product_date’, sprintf(TEXT_DATE_ADDED,
+  $smarty->assign('product_date’, sprintf(TEXT_DATE_ADDED,
   tep_date_long($product_info['products_date_added'])));
 }
-$smarty->assign(‘url_product_url’, sprintf(TEXT_MORE_INFORMATION, tep_href_link(FILENAME_REDIRECT, 'action=url&goto=' . urlencode($product_info['products_url']), 'NONSSL', true, false))); // 产品留言
+$smarty->assign('url_product_url’, sprintf(TEXT_MORE_INFORMATION, tep_href_link(FILENAME_REDIRECT, 'action=url&goto=' . urlencode($product_info['products_url']), 'NONSSL', true, false))); // 产品留言
 
 $reviews_query = tep_db_query("select count(*) as count from " . TABLE_REVIEWS . " where products_id = '" . (int)$HTTP_GET_VARS['products_id'] . "'");
 $reviews = tep_db_fetch_array($reviews_query);
 if ($reviews['count'] > 0) {
-  $smarty->assign(‘review_text’, TEXT_CURRENT_REVIEWS . ' ' . $reviews['count']);
+  $smarty->assign('review_text’, TEXT_CURRENT_REVIEWS . ' ' . $reviews['count']);
 } else {
-  $smarty->assign(‘review_text’,’’);
+  $smarty->assign('review_text’,’’);
 }
 
 // 产品图片
-$smarty->assign(‘url_product_image’, tep_href_link(FILENAME_POPUP_IMAGE, 'pID=' . $product_info['products_id']));
-$smarty->assign(‘product_image’, tep_image(DIR_WS_IMAGES . $product_info['products_image'], addslashes($product_info['products_name']), SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5"'));
-$smarty->assign(‘TEXT_CLICK_TO_ENLARGE’, TEXT_CLICK_TO_ENLARGE);
+$smarty->assign('url_product_image’, tep_href_link(FILENAME_POPUP_IMAGE, 'pID=' . $product_info['products_id']));
+$smarty->assign('product_image’, tep_image(DIR_WS_IMAGES . $product_info['products_image'], addslashes($product_info['products_name']), SMALL_IMAGE_WIDTH, SMALL_IMAGE_HEIGHT, 'hspace="5" vspace="5"'));
+$smarty->assign('TEXT_CLICK_TO_ENLARGE’, TEXT_CLICK_TO_ENLARGE);
 
 // 产品属性
 $products_attributes_query = tep_db_query("select count(*) as total from " . TABLE_PRODUCTS_OPTIONS . " popt, " . TABLE_PRODUCTS_ATTRIBUTES . " patrib where patrib.products_id='" . (int)$HTTP_GET_VARS['products_id'] . "' and patrib.options_id = popt.products_options_id and popt.language_id = '" . (int)$languages_id . "'");
@@ -343,14 +347,14 @@ if ($products_attributes['total'] > 0) {
         }
 
         $ProductAttributesArray[] = array(
-          'id' => $products_options[‘products_options_id], 
-          ’name’ => $products_options_name[‘products_options_name’], 
-          ‘values’ => $tmpOptionValuesArray
+          'id' => $products_options['products_options_id], 
+          'name' => $products_options_name['products_options_name’], 
+          'values' => $tmpOptionValuesArray
         );
       }
 
-      $smarty->assign(‘attributes’, $ProductAttributesArray);
-      $smarty->assign(‘TEXT_PRODUCT_OPTIONS’, TEXT_PRODUCT_OPTIONS);
+      $smarty->assign('attributes', $ProductAttributesArray);
+      $smarty->assign('TEXT_PRODUCT_OPTIONS', TEXT_PRODUCT_OPTIONS);
     }
 
     // 表单提交地址
@@ -364,7 +368,7 @@ if ($products_attributes['total'] > 0) {
 
 3) 产品页模板 includes/template/product_info.tpl
 
-```smarty
+```html
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html {$htmlparams}>
 <head>
@@ -571,19 +575,59 @@ outputfilter、resource、insert。
 
 其中function和modifier使用最多,function即为函数,内置的Smarty 插件里 mailto、math、fetch 都属于 function 一类插件,而如 date_format、truncate、escape、strip_tags 都属于 modifier 修改器一类的插件。下面的表格列出了 function 与 modifier 在使用上以及编写等 方面的不同之处。
 
-
-|  | function | function | modifier | modifier |
-|---|---|---|---|---|
-|  | 示例 | 说明 | 示例 | 说明 |
-| 调用方式 | {mailto address="me@exampl e.com" text="send me some mail"} | 像调用函数一样调 用,参数以变量形式 指定 | {$articleTitle| escape:"html" } | 在参数后以“|” 开始附加修改 器的名称,参数 以“:”分隔 |
-| 文件名规则 | function.mailto.php | function.函数名称.php | modifier.esca pe.php | modifier.修改器 名称.php |
-| 插件编写定义规则 | function smarty_function_mailt o($params, &$smarty) | <div>名称为 smarty_function_ 函 数 名,参数有两个,第 一个为传入的参数数 组(关联数组),第二 个参数为 smarty 对 象,smarty 对象以引 用方式传入(理论上只 有以引入方式转入 smarty 对象,才可以 通过函数修改 smarty的内容,但在实现的 过程中,笔者发现以 传值的形式传入也是 没有问题的,不过还 是强烈建议使用引用 方式,以实现编码的 规范)。 | function smarty_modif ier_escape($st ring, $esc_type = 'html', $char_set = 'ISO-8859-1') | 名称规则为：smarty_modifier _修改器名,参 数的个数由用 户指定,但第一 个 参 数 $string 为必选值 ($string 的值 为需要修改的 内容),其它参 数按传入的顺序导入,参数名 称是用户指定 的。</div> |
-| 结果的返回 | <code><pre>
-if (!empty($params['assign'])) {
+<table>
+  <thead>
+    <tr>
+      <th>  </th>
+      <th> function </th>
+      <th> function </th>
+      <th> modifier </th>
+      <th> modifier </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>  </td>
+      <td> 示例 </td>
+      <td> 说明 </td>
+      <td> 示例 </td>
+      <td> 说明 </td>
+    </tr>
+    <tr>
+      <td> 调用方式 </td>
+      <td> {mailto address="me@exampl e.com" text="send me some mail"} </td>
+      <td> 像调用函数一样调 用,参数以变量形式 指定 </td>
+      <td> {$articleTitle</td>
+      <td> escape:"html" } | 在参数后以“|” 开始附加修改 器的名称,参数 以“:”分隔 </td>
+    </tr>
+    <tr>
+      <td> 文件名规则 </td>
+      <td> function.mailto.php </td>
+      <td> function.函数名称.php </td>
+      <td> modifier.esca pe.php </td>
+      <td> modifier.修改器 名称.php </td>
+    </tr>
+    <tr>
+      <td> 插件编写定义规则 </td>
+      <td> function smarty_function_mailt o($params, &amp;$smarty) </td>
+      <td> <div>名称为 smarty_function_ 函 数 名,参数有两个,第 一个为传入的参数数 组(关联数组),第二 个参数为 smarty 对 象,smarty 对象以引 用方式传入(理论上只 有以引入方式转入 smarty 对象,才可以 通过函数修改 smarty的内容,但在实现的 过程中,笔者发现以 传值的形式传入也是 没有问题的,不过还 是强烈建议使用引用 方式,以实现编码的 规范)。 </td>
+      <td> function smarty_modif ier_escape($st ring, $esc_type = 'html', $char_set = 'ISO-8859-1') </td>
+      <td> 名称规则为：smarty_modifier _修改器名,参 数的个数由用 户指定,但第一 个 参 数 $string 为必选值 ($string 的值 为需要修改的 内容),其它参 数按传入的顺序导入,参数名 称是用户指定 的。</div> </td>
+    </tr>
+    <tr>
+      <td> 结果的返回 </td>
+      <td> <code><pre>if (!empty($params['assign'])) {
   $smarty->assign($para ms['assign'], $_contents);
 } else {
   return $_contents;
-}<pre></code> | 通常有两种形式返回 结果(确定没是必要 的话,可以只使用一 种形式返回结果),当指定了参数 assign 时, 会将结果填入 assign 变量,否则直接使用 return 返回 | return str_replace($s earch, $replace, $string); | 只需要使用 return 形式返回 结果即可 |
+}
+</pre></code></td>
+      <td> 通常有两种形式返回 结果(确定没是必要 的话,可以只使用一 种形式返回结果),当指定了参数 assign 时, 会将结果填入 assign 变量,否则直接使用 return 返回 </td>
+      <td> return str_replace($s earch, $replace, $string); </td>
+      <td> 只需要使用 return 形式返回 结果即可 </td>
+    </tr>
+  </tbody>
+</table>
 
 #### 编写 smarty 插件
 
