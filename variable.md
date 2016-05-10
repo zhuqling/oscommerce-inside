@@ -25,22 +25,29 @@ if (tep_session_is_registered('cart') && is_object($cart)) {
 
 ### 基础类型变量
 
-$SID:SESSION ID
-$SESSION_SSL_ID:SSL 连接方式的 SESSION ID $http_user_agent:浏览器信息
-$ip_address:浏览 IP
-$PHP_SELF:当前 PHP 文件
-$cart:购物车对象
-$currencies:货币对象
-$currency:当前币种
-$lng:语言对象 $language:当前语言目录(可以是像“english”的完整单词,也可以像“eng”的缩写,是用户在 管理后台设置的)
-$languages_id:当前语言 ID
-navigation:浏览历史对象
-$current_category_id:当前浏览的产品分类 ID(在分类页面和产品详细内容面有效) $breadcrumb:面包屑导航对象
-$messageStack:消息对象
+- $SID:SESSION ID
+- $SESSION_SSL_ID:SSL 连接方式的 SESSION ID 
+- $http_user_agent:浏览器信息
+- $ip_address:浏览 IP
+- $PHP_SELF:当前 PHP 文件
+- $cart:购物车对象
+- $currencies:货币对象
+- $currency:当前币种
+- $lng:语言对象 
+- $language:当前语言目录(可以是像“english”的完整单词,也可以像“eng”的缩写,是用户在 管理后台设置的)
+- $languages_id:当前语言 ID
+- navigation:浏览历史对象
+- $current_category_id:当前浏览的产品分类 ID(在分类页面和产品详细内容面有效) 
+- $breadcrumb:面包屑导航对象
+- $messageStack:消息对象
 
 ### 用户相关变量
 
-$customer_id:用户 ID customer_default_address_id:用户默认地址 ID customer_first_name:用户名字 customer_country_id:用户所属国家 ID customer_zone_id:用户所属省/区 ID
+- $customer_id:用户 ID 
+- customer_default_address_id:用户默认地址 ID 
+- customer_first_name:用户名字 
+- customer_country_id:用户所属国家 ID 
+- customer_zone_id:用户所属省/区 ID
 
 > 提示:
 > 
@@ -48,8 +55,18 @@ $customer_id:用户 ID customer_default_address_id:用户默认地址 ID custome
 
 ### 订单相关变量
 
-$order:订单对象
-$cartID:购物车 ID $sendto:收货地址 ID $billto:账单地址 ID $shipping:发货方式 $payment:付款方式 $free_shipping:是否 FREE SHIPPING $comments:用户备注 $total_weight:产品总重量 $total_count:产品总数量 $shipping_weight:发货所计的重量 $shipping_num_boxes:产品包裹数量
+- $order:订单对象
+- $cartID:购物车 ID 
+- $sendto:收货地址 ID 
+- $billto:账单地址 ID 
+- $shipping:发货方式 
+- $payment:付款方式 
+- $free_shipping:是否 FREE SHIPPING 
+- $comments:用户备注 
+- $total_weight:产品总重量 
+- $total_count:产品总数量 
+- $shipping_weight:发货所计的重量 
+- $shipping_num_boxes:产品包裹数量
 
 > 提示:
 > 
