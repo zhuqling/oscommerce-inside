@@ -6,7 +6,7 @@
 
 #### tableBox 类
 
-function tableBox($contents, $direct_output = false) 
+#### function tableBox($contents, $direct_output = false) 
 
 功能:实现对输入内容的格式化。
 
@@ -20,7 +20,7 @@ tableBox 类是其它 Box 类的基类,负责最基础的输出组织工作。�
 
 父类:tableBox
 
-function infoBox($contents)
+#### function infoBox($contents)
 
 功能:直接输出一个信息框主体
 
@@ -48,7 +48,7 @@ new infoBox($info_box_contents);
 
 信息框主体的参数为数组,其中 form 表示要求将信息框主体用 form 表单包裹起来,align 指定了 文本对齐方式,text 要求填充要显示的内容。
 
-function infoBoxContents($contents)
+#### function infoBoxContents($contents)
 
 功能:格式化信息框主体
 
@@ -60,7 +60,7 @@ function infoBoxContents($contents)
 
 父类:tableBox
 
-function infoBoxHeading($contents, $left_corner = true, $right_corner = true, $right_arrow = false)
+#### function infoBoxHeading($contents, $left_corner = true, $right_corner = true, $right_arrow = false)
 
 功能:输出一个信息框标题
 
@@ -84,7 +84,7 @@ tep_href_link(FILENAME_SHOPPING_CART));
 
 父类:tableBox
 
-function contentBox($contents)
+#### function contentBox($contents)
 
 功能:输出一个内容框主体
 
@@ -117,7 +117,7 @@ $info_box_contents = array();
 
 需要输出的内容参数包括:align 指定文本对比方式,params 设置其它样式及显示参数,text 为要 显示的内容。
 
-function contentBoxContents($contents)
+#### function contentBoxContents($contents)
 
 功能:格式化内容框主体
 
@@ -129,7 +129,7 @@ function contentBoxContents($contents)
 
 父类:tableBox
 
-function contentBoxHeading($contents) 
+#### function contentBoxHeading($contents) 
 
 功能:输出一个内容框主体
 
@@ -147,7 +147,7 @@ new contentBoxHeading($info_box_contents);
 
 父类:tableBox
 
-function errorBox($contents)
+#### function errorBox($contents)
 
 功能:输出一个错误提示框
 
@@ -158,7 +158,7 @@ function errorBox($contents)
 
 父类:tableBox
 
-function productListingBox($contents)
+#### function productListingBox($contents)
 
 功能:输出一个产品列表框
 
@@ -215,15 +215,15 @@ new productListingBox($info_box_contents);
 
 文件:includes/classes/breadcrumb.php
 
-function breadcrumb()
+#### function breadcrumb()
 
 功能:复位内部变量
 
-function reset()
+#### function reset()
 
 功能:内部复位操作
 
-function add($title, $link = '')
+#### function add($title, $link = '')
 
 功能:添加新的路径
 
@@ -231,7 +231,7 @@ function add($title, $link = '')
 -  $title:路径标题
 -  $link:路径要链接的URL,如果未设置$link或$link的值为空,则路径只显示文本,不具备链接。
 
-function trail($separator = ' - ')
+#### function trail($separator = ' - ')
 
 功能:格式化输出 Breadcrumb 的内容
 
@@ -254,7 +254,7 @@ echo $breadcrumb->trail(' &raquo; '); // 符号“»”用于分隔
 
 #### class cc_validation
 
-function validate($number, $expiry_m, $expiry_y) 
+#### function validate($number, $expiry_m, $expiry_y) 
 
 功能:验证信用卡号码是否有效,支持信用卡种类有 Visa,Master Card,American Express,Diners Club,Discover,JCB 和 Australian BankCard。
 
@@ -304,7 +304,7 @@ validate 实际上是通过调用 is_valid 方法来实现最后的验证步骤�
 
 #### class currencies
 
-function currencies()
+#### function currencies()
 
 功能:初始化币种信息
 
@@ -322,7 +322,7 @@ $currencies[$code] = array(
 );
 ```
 
-function format($number, $calculate_currency_value = true, $currency_type = '', $currency_value = '')
+#### function format($number, $calculate_currency_value = true, $currency_type = '', $currency_value = '')
                  
 功能:以正确的货币格式输出金额
 
@@ -339,7 +339,7 @@ echo $currencies->format($order->info['shipping_cost'], true,
 $order->info['currency'], $order->info['currency_value']);
 ```
 
-function calculate_price($products_price, $products_tax, $quantity = 1)
+#### function calculate_price($products_price, $products_tax, $quantity = 1)
 
 功能:计算产品包含数量和税率后的价格 
 
@@ -367,7 +367,7 @@ $qty);
 echo $currencies->format($total);
 ```
 
-function is_set($code)
+#### function is_set($code)
 
 功能:验证货币代码是否有效 
 
@@ -376,7 +376,7 @@ function is_set($code)
 
 返回值:true/false
 
-function get_value($code)
+#### function get_value($code)
 
 功能:获取指定货币的转换汇率 
 
@@ -385,14 +385,14 @@ function get_value($code)
 
 返回值:Decimal
 
-function get_decimal_places($code)
+#### function get_decimal_places($code)
 
 功能:获取货币的小数点位置 
 
 参数:
 -  $code:货币代码
 
-function display_price($products_price, $products_tax, $quantity = 1)
+#### function display_price($products_price, $products_tax, $quantity = 1)
 
 功能:计算产品价格、税额以及数量后的总金额,并以当前货币形式显示 
 
@@ -416,14 +416,14 @@ echo $products_price;
 
 文件:includes/classes/email.php
 
-function email($headers = '') 
+#### function email($headers = '') 
 
 功能:初始化邮件类
 
 参数:
 -  $headers:Array,需要特别添加的邮件头
 
-function get_file($filename)
+#### function get_file($filename)
 
 功能:获取文件内容
 
@@ -432,21 +432,21 @@ function get_file($filename)
 
 返回值:String,文件完整内容
 
-function find_html_images($images_dir)
+#### function find_html_images($images_dir)
 
 功能:查找成员$html 里的所有图片(格式:gif/jpg/jpeg/jpe/bmp/png/tif/tiff/swf),将所有图片以附 件的形式附加在邮件里。
 
 参数:
 -  $images_dir:图片文件存放的路径,程序将在此路径查找所有邮件内容中出现的图片。
 
-function add_text($text = '')
+#### function add_text($text = '')
 
 功能:添加文本信息 
 
 参数:
 -  $text:要添加的文本
 
-function add_html($html, $text = NULL, $images_dir = NULL) 
+#### function add_html($html, $text = NULL, $images_dir = NULL) 
 
 功能:添加 HTML 内容
 
@@ -455,7 +455,7 @@ function add_html($html, $text = NULL, $images_dir = NULL)
 -  $text:邮件接收方无法显示HTML时,将显示的无格式文本。
 -  $images_dir:NULL/String 是否将 HTML 文本里的所有图片作为附件发送
 
-function add_html_image($file, $name = '', $c_type='application/octet-stream')
+#### function add_html_image($file, $name = '', $c_type='application/octet-stream')
 
 功能:添加一张图片
 
@@ -475,7 +475,7 @@ function add_html_image($file, $name = '', $c_type='application/octet-stream')
 -  tiff:image/tiff
 -  swf:application/x-shockwave-flash
 
-function add_attachment($file, $name = '', $c_type='application/octet-stream', $encoding = 'base64')
+#### function add_attachment($file, $name = '', $c_type='application/octet-stream', $encoding = 'base64')
 
 功能;添加一个文件附件
 
@@ -490,7 +490,7 @@ function add_attachment($file, $name = '', $c_type='application/octet-stream', $
 -  7bit:7位加密
 -  quoted-printable:可打印引号格式
 
-function add_text_part(&$obj, $text) 
+#### function add_text_part(&$obj, $text) 
 
 功能:将文本内容加入到 MIME 信息里 
 
@@ -500,7 +500,7 @@ function add_text_part(&$obj, $text)
 
 返回值:被修改过的 MIME 对象,如果$obj 为空,则生成新的 MIME 对象并将$text 加入其中。
 
-function add_html_part(&$obj) 
+#### function add_html_part(&$obj) 
 
 功能:将成员$html 的内容加入到 MIME 信息里 
 
@@ -509,11 +509,11 @@ function add_html_part(&$obj)
 
 返回值:MIME 对象。
 
-function add_mixed_part()
+#### function add_mixed_part()
 
 功能:生成一个新的 multipart/mixed 类型的 MIME 对象 返回:MIME 对象
 
-function add_alternative_part(&$obj)
+#### function add_alternative_part(&$obj)
 
 功能:在 MIME 对象里添加一个新的 multipart/alternative 类型数据 
 
@@ -522,7 +522,7 @@ function add_alternative_part(&$obj)
 
 返回值:MIME 对象。
 
-function add_related_part(&$obj)
+#### function add_related_part(&$obj)
 
 功能:在 MIME 对象里添加一个新的 multipart/related 类型数据 
 
@@ -532,7 +532,7 @@ function add_related_part(&$obj)
 
 返回值:MIME 对象。
 
-function add_html_image_part(&$obj, $value) 
+#### function add_html_image_part(&$obj, $value) 
 
 功能:添加一个图片至 MIME 对象
 
@@ -542,7 +542,7 @@ function add_html_image_part(&$obj, $value)
 
 参数格式如下: array('c_type'=>'类型',' name'=>'图片名称',' body'=>'图片内容');
 
-function add_attachment_part(&$obj, $value) 
+#### function add_attachment_part(&$obj, $value) 
 
 功能:添加一个附件至 MIME 对象 
 
@@ -552,7 +552,7 @@ function add_attachment_part(&$obj, $value)
 
 参数格式如下: array('c_type'=>'类型',' encoding'=>'编码方式', 'name'=>'附件名称',' body'=>'附件内容');
 
-function build_message($params = '')
+#### function build_message($params = '')
 
 功能:转换所有内容至 MIME 格式,并以指定编码方式进行编码 
 
@@ -568,7 +568,7 @@ array(
   'text_wrap'=>'文本换行')
 ```
 
-function send($to_name, $to_addr, $from_name, $from_addr, $subject = '', $headers = '')
+#### function send($to_name, $to_addr, $from_name, $from_addr, $subject = '', $headers = '')
 
 功能:发送邮件
 
@@ -580,7 +580,7 @@ function send($to_name, $to_addr, $from_name, $from_addr, $subject = '', $header
 -  $subject:邮件主题
 -  $headers:邮件头
 
-function get_rfc822($to_name, $to_addr, $from_name, $from_addr, $subject = '', $headers = '') 
+#### function get_rfc822($to_name, $to_addr, $from_name, $from_addr, $subject = '', $headers = '') 
 
 功能:获取邮件内容的 RFC822 格式
 
@@ -623,7 +623,7 @@ while ($mail = tep_db_fetch_array($mail_query)) {
 
 文件:includes/classes/http_client.php
 
-function httpClient($host = '', $port = '')
+#### function httpClient($host = '', $port = '')
 
 功能:开启一个 HTTP 连接,无未指定$host 则表示暂时不连接,可在需要时使用 connect 方法连 接。
 
@@ -631,7 +631,7 @@ function httpClient($host = '', $port = '')
 -  $host:连接的域名或IP
 -  $port:端口号
 
-function setProxy($proxyHost, $proxyPort)
+#### function setProxy($proxyHost, $proxyPort)
 
 功能:设置代理
 
@@ -639,14 +639,14 @@ function setProxy($proxyHost, $proxyPort)
 -  $proxyHos:代理域名或IPt 
 - $proxyPort:代理端口号
 
-function setProtocolVersion($version) 
+#### function setProtocolVersion($version) 
 
 功能:设置协议版本,如 0.9、1.0、1,1,版本号不能大于 1.1
 
 参数:
 -  $version:版本号
 
-function setCredentials($username, $password) 
+#### function setCredentials($username, $password) 
 
 功能:设置认证信息,当连接的网址开启了密码验证时,需要使用此功能,目前只支持 Basic 验 证方式
 
@@ -654,14 +654,14 @@ function setCredentials($username, $password)
 -  $username:用户名
 -  $password:密码
 
-function setHeaders($headers)
+#### function setHeaders($headers)
 
 功能:设置请求头信息
 
 参数:
 -  $headers:关联数组,头信息
 
-function addHeader($headerName, $headerValue)
+#### function addHeader($headerName, $headerValue)
 
 功能:增加一条请求头信息 
 
@@ -669,14 +669,14 @@ function addHeader($headerName, $headerValue)
 -  $headerName:头信息名称   
 -  $headerValue:头信息值
 
-function removeHeader($headerName)
+#### function removeHeader($headerName)
 
 功能:删除一条请求头信息 
 
 参数:
   $headerName:头信息名称
 
-function Connect($host, $port = '') 
+#### function Connect($host, $port = '') 
 
 功能:连接域名或 IP
 
@@ -697,12 +697,12 @@ if ($http->Connect('production.shippingapis.com', 80)) {
   $http->Disconnect();
 }
 
-function Disconnect()
+#### function Disconnect()
 ```
 
 功能:断开连接
 
-function Head($uri) 
+#### function Head($uri) 
 
 功能:获取指定网址的头信息,只有当返回连接正常(代码:200)时,才有效 
 
@@ -711,7 +711,7 @@ function Head($uri)
 
 返回值:“Bad Response”/ 头信息文本
 
-function Get($url) 
+#### function Get($url) 
 
 功能:获取指定网址的内容,只有当返回连接正常(代码:200)时,才有效 
 
@@ -720,7 +720,7 @@ function Get($url)
 
 返回值:“Bad Response”/ 网站内容文本
 
-function Post($uri, $query_params = '') 
+#### function Post($uri, $query_params = '') 
 
 功能:发送 POST 请求
 
@@ -730,7 +730,7 @@ function Post($uri, $query_params = '')
 
 返回值:“Bad Response”/ 网站内容文本
 
-function Put($uri, $filecontent)
+#### function Put($uri, $filecontent)
 
 功能:发送 PUT 请求,PUT 请求允许发送一个文件至指定网址,但大部分服务器不支持或已禁 用此功能
 
@@ -740,19 +740,19 @@ function Put($uri, $filecontent)
 
 返回值:“Bad Response”/ 网站内容文本
 
-function getHeaders()
+#### function getHeaders()
 
 功能:获取返回的头信息
 
-function getHeader($headername)
+#### function getHeader($headername)
 
 功能:获取指定名称的返回头信息
 
-function getBody()
+#### function getBody()
 
 功能:获取返回内容文本
 
-function getStatus()
+#### function getStatus()
 
 功能:获取返回状态
 
@@ -762,11 +762,11 @@ function getStatus()
 -  40x :请求信息错误(URL 错误、文档不存在等等)   
 -  50x :服务器出错
 
-function getStatusMessage()
+#### function getStatusMessage()
 
 功能:获取返回状态提示信息 提示信息不仅包括状态代码,还包括此代码所表示的意义,如“404 Document not found”
 
-function sendCommand($command)
+#### function sendCommand($command)
 
 功能:底层的发送请求命令 
 
@@ -775,22 +775,22 @@ function sendCommand($command)
 
 请求命令可以是 HEAD、GET、POST 或者 PUT 
 
-function processReply()
+#### function processReply()
 
 功能:底层的返回信息处理方法
 
-function processHeader($lastLine = "\r\n")
+#### function processHeader($lastLine = "\r\n")
 
 功能:底层的处理返回头信息方法 
 
 参数:
 -  $lastLine:换行符
 
-function processBody()
+#### function processBody()
 
 功能:底层的返回信息处理方法
 
-function makeUri($uri) 
+#### function makeUri($uri) 
 
 功能:获取规范格式的 URL 
 
@@ -801,21 +801,21 @@ function makeUri($uri)
 
 文件:includes/classes/language.php
 
-function language($lng = '')
+#### function language($lng = '')
 
 功能:初始化网站所拥有的语言,并设置当前语言。
 
 参数:
 -  $lng:要设置的当前语言代码,如果此值为空,则设置系统默认语言为当前语言。
 
-function set_language($language)
+#### function set_language($language)
 
 功能:设置当前语言
 
 参数:
 -  $language:语言代码
 
-function get_browser_language()
+#### function get_browser_language()
 
 功能:设置浏览器语言为当前语言
 
@@ -838,11 +838,11 @@ if (isset($HTTP_GET_VARS['language']) && tep_not_null($HTTP_GET_VARS['language']
 
 父类:tableBox
 
-function messageStack()
+#### function messageStack()
 
 功能:初始化消息列表
 
-function add($class, $message, $type = 'error')
+#### function add($class, $message, $type = 'error')
 
 功能:增加一条提醒消息
 
@@ -856,7 +856,7 @@ function add($class, $message, $type = 'error')
 -  warning:警告   
 -  success:成功
 
-function add_session($class, $message, $type = 'error')
+#### function add_session($class, $message, $type = 'error')
 
 功能:添加一条消息至会话
 
@@ -865,7 +865,7 @@ function add_session($class, $message, $type = 'error')
 -  $message:消息文本
 -  $type:消息类型,默认为error类型
 
-function output($class)
+#### function output($class)
 
 功能:输出消息框
 
@@ -882,7 +882,7 @@ if ($messageStack->size('account_password') > 0) {
 ```
 
 
-function size($class)
+#### function size($class)
 
 功能:指定分类的消息条数 
 
@@ -895,7 +895,7 @@ function size($class)
 
 mime 用于管理邮件的多媒体信息,如附加图片、附件或者合并多个文本等功能。email 类使用了 mime 类。
 
-function mime($body, $params = '')
+#### function mime($body, $params = '')
 
 功能:初始化多媒体信息
 
@@ -903,11 +903,11 @@ function mime($body, $params = '')
 -  $body:多媒体信息主体
 -  $params:多媒体信息头参数 信息头参数包括:content_type、encoding、cid、disposition、dfilename、description、charset
 
-function encode()
+#### function encode()
 
 功能:加密方法
 
-function addSubPart($body, $params)
+#### function addSubPart($body, $params)
 
 功能:添加一个子部分
 
@@ -915,7 +915,7 @@ function addSubPart($body, $params)
 -  $body:多媒体信息主体
 -  $params:多媒体信息头参数
 
-function _getEncodedData($data, $encoding)
+#### function _getEncodedData($data, $encoding)
 
 功能:内部加密文本方法
 
@@ -923,7 +923,7 @@ function _getEncodedData($data, $encoding)
 -  $data:要加密的文本
 -  $encoding:加密格式 加密格式包括:7bit、quoted-printable、base64
 
-function _quotedPrintableEncode($input , $line_max = 76)
+#### function _quotedPrintableEncode($input , $line_max = 76)
 
 功能:内部的可打印引号加密方法 
 
@@ -938,19 +938,19 @@ function _quotedPrintableEncode($input , $line_max = 76)
 class navigationHistory function navigationHistory() 
 
 功能:复位游览记录
-function reset()
+#### function reset()
 
 功能:内部复位方法
 
-function add_current_page()
+#### function add_current_page()
 
 功能:将当前页面加入到游览历史记录里
 
-function remove_current_page()
+#### function remove_current_page()
 
 功能:将当前页面从历史记录中删除
 
-function set_snapshot($page = '')
+#### function set_snapshot($page = '')
 
 功能:当前页面保存快照 
 
@@ -958,11 +958,11 @@ function set_snapshot($page = '')
 
 -  $page:页面URL
 
-function clear_snapshot()
+#### function clear_snapshot()
 
 功能:删除所有快照
 
-function set_path_as_snapshot($history = 0)
+#### function set_path_as_snapshot($history = 0)
 
 功能:将页面路径转换成快照 
 
@@ -970,18 +970,18 @@ function set_path_as_snapshot($history = 0)
 
 -  $history:单条历史记录的ID
 
-function debug()
+#### function debug()
 
 功能:输出调试信息
 
-function filter_parameters($parameters)
+#### function filter_parameters($parameters)
 
 功能:过滤参数
 
 参数:
 -  $parameters:参数表
 
-function unserialize($broken)
+#### function unserialize($broken)
 
 功能:将值反串列化成对象 
 
@@ -1003,7 +1003,7 @@ $navigation->add_current_page();
 
 文件:includes/classes/order.php
 
-function order($order_id = '')
+#### function order($order_id = '')
 
 功能:初始化一条订单
 
@@ -1995,14 +1995,14 @@ function order($order_id = '')
   </tbody>
 </table>
 
-function query($order_id)
+#### function query($order_id)
 
 功能:内部从现有订单中加载 
 
 参数:
 -  $order_id:原有订单ID
 
-function cart()
+#### function cart()
 
 功能:将购物车转换成订单的内部方法
 
@@ -2010,11 +2010,11 @@ function cart()
 
 文件:includes/classes/order_total.php
 
-function order_total() 
+#### function order_total() 
 
 功能:加载所有已安装的统计模块并对所有模块初始化
 
-function process()
+#### function process()
 
 功能:运行所有已安装统计模块的统计功能,得到统计结果
 
@@ -2031,7 +2031,7 @@ array(array(
   'sort_order'=>'排序号'))
 ```
 
-function output()
+#### function output()
 
 功能:得到所有已安装的统计模块计算结果后的特定格式显示效果
 
@@ -2039,22 +2039,22 @@ function output()
 
 文件:includes/classes/payment.php
 
-function payment($module = '') 
+#### function payment($module = '') 
 
 功能:初始化所有可用的付款模块或只初始化指定的付款模块 
 
 参数:
 -  $module:付款模块代码
 
-function update_status()
+#### function update_status()
 
 功能:调用选定的付款模块的更新状态方法
 
-function javascript_validation()
+#### function javascript_validation()
 
 功能:调用选定付款模块的 javascript 验证代码(当付款模块具备验证功能时)
 
-function checkout_initialization_method()
+#### function checkout_initialization_method()
 
 功能:调用选定付款模块的 checkout_initialization_method 方法,以便在付款时作好准备
 
@@ -2062,31 +2062,31 @@ function checkout_initialization_method()
 > 
 > 只有当选择了某个付款模块进行最后的结算时,才需要指定$module 参数,其余时间都将初始化 所有可用的付款模块以供用户选择
 
-function selection()
+#### function selection()
 
 功能:列举所有可用的付款模块(可用的定义包括:已安装和已生效)
 
-function pre_confirmation_check()
+#### function pre_confirmation_check()
 
 功能:调用选定付款模块的订单确认前检查方法
 
-function confirmation()
+#### function confirmation()
 
 功能:调用选定付款模块的订单确认方法
 
-function process_button()
+#### function process_button()
 
 功能:如果选定付款模块为在线支付类型,则输出该模块的支付网关跳转代码
 
-function before_process()
+#### function before_process()
 
 功能:调用选定付款模块的预处理方法
 
-function after_process()
+#### function after_process()
 
 功能:调用选定付款模块的订单生成后处理方法
 
-function get_error()
+#### function get_error()
 
 功能:获取付款模块的错误信息
 
@@ -2098,13 +2098,13 @@ function get_error()
 
 session 类用于兼容 PHP4 以下版本的环境,php3session 类可使用两种 session 机制,一种是文件类 型,另一种是用户自定义类型,这两种类型分别由 php3session_files 和 php3session_user 类管理, 通过改变 php3session 的成员$save_handler 可以切换到不同的类型
 
-function php3session()
+#### function php3session()
 
 功能:初始化 PHP3 会话类
 
 #### php3session_user 类
 
-function open($save_path, $sess_name) 
+#### function open($save_path, $sess_name) 
 
 功能:打开会话的实现
 
@@ -2112,7 +2112,7 @@ function open($save_path, $sess_name)
 -  $save_path:保存路径
 -  $sess_name:会话名称
 
-function close($save_path, $sess_name)
+#### function close($save_path, $sess_name)
 
 功能:关闭会话的实现 
 
@@ -2120,14 +2120,14 @@ function close($save_path, $sess_name)
 -  $save_path:保存路径   
 -  $sess_name:会话名称
 
-function read($sess_id)
+#### function read($sess_id)
 
 功能:读取会话值的实现 
 
 参数:
 -  $sess_id:会话ID
 
-function write($sess_id, $val)
+#### function write($sess_id, $val)
 
 功能:写入会话值的实现 
 
@@ -2135,14 +2135,14 @@ function write($sess_id, $val)
 -  $sess_id:会话ID
 -  $val:写入值
 
-function destroy($sess_id)
+#### function destroy($sess_id)
 
 功能:销毁会话的实现 
 
 参数:
 -  $sess_id:会话ID
 
-function gc($max_lifetime)
+#### function gc($max_lifetime)
 
 功能:垃圾收集器的实现
 
@@ -2164,7 +2164,7 @@ SESSION_WRITE_DIRECTORY
 
 #### php3session_files 类
 
-function open($save_path, $sess_name) 
+#### function open($save_path, $sess_name) 
 
 功能:打开会话的实现
 
@@ -2172,18 +2172,18 @@ function open($save_path, $sess_name)
 -  $save_path:保存路径
 -  $sess_name:会话名称
 
-function close()
+#### function close()
 
 功能:关闭会话的实现
 
-function read($sess_id)
+#### function read($sess_id)
 
 功能:读取会话值的实现 
 
 参数:
 -  $sess_id:会话ID
 
-function write($sess_id, $val)
+#### function write($sess_id, $val)
 
 功能:写入会话值的实现 
 
@@ -2191,14 +2191,14 @@ function write($sess_id, $val)
 -  $sess_id:会话ID
 -  $val:写入值
 
-function destroy($sess_id)
+#### function destroy($sess_id)
 
 功能:销毁会话的实现 
 
 参数:
 -  $sess_id:会话ID
 
-function gc($max_lifetime)
+#### function gc($max_lifetime)
 
 功能:垃圾收集器的实现
 
@@ -2207,27 +2207,27 @@ function gc($max_lifetime)
 
 #### PHP3 session 管理函数 
 
-function _session_create_id() 
+#### function _session_create_id() 
 
 功能:创建 session ID
 
-function _session_cache_limiter()
+#### function _session_cache_limiter()
 
 功能:会话缓存设置
 
-function _php_encode()
+#### function _php_encode()
 
 功能:加密会话值
 
-function _php_decode($data)
+#### function _php_decode($data)
 
 功能:解密会话值
 
-function _wddx_encode($data) 
+#### function _wddx_encode($data) 
 
 功能:使用 WDDX 封装方式加密
 
-function _wddx_decode($data)
+#### function _wddx_decode($data)
 
 功能:解密 WDDX 封装方式
 
@@ -2264,14 +2264,14 @@ echo wddx_serialize_vars("a", "b", $clvars);
 </wddxPacket>
 ```
 
-function session_name($name = '')
+#### function session_name($name = '')
 
 功能:设置/获取 session 名称
 
 参数:
 -  $name:要设置的名称,无为空值则返回当前session名称
 
-function session_set_save_handler($open, $close, $read, $write, $destroy, $gc) 
+#### function session_set_save_handler($open, $close, $read, $write, $destroy, $gc) 
 
 功能:设置自定义的 session 管理函数
 
@@ -2283,62 +2283,62 @@ function session_set_save_handler($open, $close, $read, $write, $destroy, $gc)
 - $destroy:销毁会话函数名   
 - $gc:垃圾收集函数名
 
-function session_module_name($name = '')
+#### function session_module_name($name = '')
 
 功能:获取/设置 session 的模块名
 
 参数:
 -  $name:要设置的名称,无为空值则返回当前session的模块名称
 
-function session_save_path($path = '') 
+#### function session_save_path($path = '') 
 
 功能:获取/设置 session 的保存路径
 
-function session_id($id = '') 
+#### function session_id($id = '') 
 
 功能:获取/设置 session ID
 
-function session_register($var)
+#### function session_register($var)
 
 功能:注册一个或多个变量为会话 
 
 参数:
 -  $var:变量名
 
-function session_unregister($var)
+#### function session_unregister($var)
 
 功能:从当前会话中注销一个全局变量 
 
 参数:
 -  $var:变量名
 
-function session_is_registered($var) 
+#### function session_is_registered($var) 
 
 功能:获取指定的变量名是否已在 session 注册 
 
 参数:
 -  $var:变量名
 
-function session_encode()
+#### function session_encode()
 
 功能:将当前会话加密成文本
 
-function session_decode($data)
+#### function session_decode($data)
 
 功能:从文本中解密会话值 
 
 参数:
 -  $data:加密后的文本
 
-function session_start() 
+#### function session_start() 
 
 功能:初始化 session 数据
 
-function session_destroy() 
+#### function session_destroy() 
 
 功能:销毁 session 的所有数据
 
-function session_close() 
+#### function session_close() 
 
 功能:关闭 session
 
@@ -2346,14 +2346,14 @@ function session_close()
 
 文件:includes/classes/ shipping.php
 
-function shipping($module = '') 
+#### function shipping($module = '') 
 
 功能:初始化所有可用的运输模块,或只初始化选定的一个运输模块
 
 参数:
 -  $module:如为空,则初始化所有可用的运输模块,否则只初始化$module指定的运输模块
 
-function quote($method = '', $module = '')
+#### function quote($method = '', $module = '')
 
 功能:调用所有可用的运输模块的 quote 方法实现运输的计算,或者只计算指定运输模块的的运 输
 
@@ -2361,7 +2361,7 @@ function quote($method = '', $module = '')
 -  $method:运输模块的子运输方式,如为空,则计算所有可用的子运输方式,否则将只计算指定的子运输方式
 -  $module:运输模块代码,如为空,则计算所有可用的运输模块,否则只针对指定的运输模块进行计算
 
-function cheapest()
+#### function cheapest()
 
 功能;获取所有可用运输模块中运费最便宜的运输方式结果 
 
@@ -2372,11 +2372,11 @@ function cheapest()
 
 文件:includes/classes/shopping_cart.php
 
-function shoppingCart() 
+#### function shoppingCart() 
 
 功能:初始化购物车
 
-function restore_contents()
+#### function restore_contents()
 
 功能:恢复购物车内容
 
@@ -2384,14 +2384,14 @@ function restore_contents()
 
 如果用户未登录前在购物车里已经有产品,则登录后的购物车将会同时显示现有产品和以前的购物车产品
 
-function reset($reset_database = false)
+#### function reset($reset_database = false)
 
 功能:清空购物车
 
 参数:
 -  $reset_database:是否清除数据库里的购物车信息
 
-function add_cart($products_id, $qty = '1', $attributes = '', $notify = true)
+#### function add_cart($products_id, $qty = '1', $attributes = '', $notify = true)
 
 功能:添加产品
  
@@ -2417,7 +2417,7 @@ if (isset($HTTP_POST_VARS['products_id']) && is_numeric($HTTP_POST_VARS['product
 > 
 > 得到产品识别 ID 的函数是 tep_get_uprid,通过解析识别 ID 得出产品 ID 的函数是 tep_get_prid。
 
-function update_quantity($products_id, $quantity = '', $attributes = '')
+#### function update_quantity($products_id, $quantity = '', $attributes = '')
 
 功能:修改产品数量 
 
@@ -2426,63 +2426,63 @@ function update_quantity($products_id, $quantity = '', $attributes = '')
 -  $quantity:数量
 -  $attributes:产品参数
 
-function cleanup()
+#### function cleanup()
 
 功能:清理购物车
 
 此方法与清空购物车方法是不同的,清空购物车会清空所有购物车内的产品,而清理购物车只清除数量信息错误(数量<1)的产品。 
 
-function count_contents()
+#### function count_contents()
 
 功能:获取购物车内产品总数
 
-function get_quantity($products_id)
+#### function get_quantity($products_id)
 
 功能:获取指定产品的所购数量 
 
 参数:
 -  $products_id:产品ID
 
-function in_cart($products_id)
+#### function in_cart($products_id)
 
 功能:判断购物车内是否有指定产品存在 
 
 参数:
 -  $products_id:产品ID
 
-function remove($products_id)
+#### function remove($products_id)
 
 功能:删除购物车内的单个产品 
 
 参数:
 -  $products_id:产品ID
 
-function remove_all()
+#### function remove_all()
 
 功能:清空购物车
 
 remove_all 方法为 reset 方法的别名
 
-function get_product_id_list() 
+#### function get_product_id_list() 
 
 功能:获得购物车内所有产品的 ID 
 
 返回值:字符串,产品 ID 由逗号“,”分隔的字符串
 
-function calculate()
+#### function calculate()
 
 功能:统计购物车信息,包括总金额和总重量
 
 总金额由成员 total 保存,总重量由成员 weight 保存,可以分别由 show_total 和 show_weight 方法 获得
 
-function attributes_price($products_id)
+#### function attributes_price($products_id)
 
 功能:获取指定产品的属性发生的费用 
 
 参数:
 -  $products_id:产品ID
 
-function get_products()
+#### function get_products()
 
 功能:获取购物车内所有产品的资料 
 
@@ -2505,22 +2505,22 @@ array(array(
 ));
 ```
 
-function show_total()
+#### function show_total()
 
 功能:获取当前购物车总金额
 
-function show_weight()
+#### function show_weight()
 
 功能:获取当前购物车总重量
 
-function generate_cart_id($length = 5) 
+#### function generate_cart_id($length = 5) 
 
 功能:创建购物车唯一识别 ID 
 
 参数:
 -  $length:ID长度
 
-function get_content_type()
+#### function get_content_type()
 
 功能:获取购物车内产品类型
 
@@ -2531,7 +2531,7 @@ function get_content_type()
 -  virtual:虚拟物品
 -  mixed:混合类型(实物+虚拟)
 
-function unserialize($broken)
+#### function unserialize($broken)
 
 功能:反序列化
 
@@ -2552,7 +2552,7 @@ $cart = new shoppingCart; $cart->unserialize($broken_cart);
 
 文件:includes/classes/split_page_results.php
 
-function splitPageResults($query, $max_rows, $count_key = '*', $page_holder = 'page') 
+#### function splitPageResults($query, $max_rows, $count_key = '*', $page_holder = 'page') 
 
 功能:创建分页类
 
@@ -2577,7 +2577,7 @@ function splitPageResults($query, $max_rows, $count_key = '*', $page_holder = 'p
 > 
 > 使用 splitPageResults 类输出分类时,要求 SQL 查询语句的关键字必须使用小写字母,如不能写成 “FROM”、“ORDER BY”,而应该写成“from”、“order by”。如果不小心使用了大写字母的关键 字,将会使得 splitPageResults 类得出的分类查询语句出现语法错误。
 
-function display_links($max_page_links, $parameters = '')
+#### function display_links($max_page_links, $parameters = '')
 
 功能:显示页面切换代码
 
@@ -2591,7 +2591,7 @@ function display_links($max_page_links, $parameters = '')
  
 标准的页面切换样式如图:
 
-function display_count($text_output)
+#### function display_count($text_output)
 
 功能:显示页码提示框,内容包括当前页码,总页数等内容 
 
