@@ -616,12 +616,13 @@ outputfilter、resource、insert。
     </tr>
     <tr>
       <td> 结果的返回 </td>
-      <td> <code><pre>if (!empty($params['assign'])) {
+      <td><pre>
+if (!empty($params['assign'])) {
   $smarty->assign($para ms['assign'], $_contents);
 } else {
   return $_contents;
 }
-</pre></code></td>
+</pre></td>
       <td> 通常有两种形式返回 结果(确定没是必要 的话,可以只使用一 种形式返回结果),当指定了参数 assign 时, 会将结果填入 assign 变量,否则直接使用 return 返回 </td>
       <td> return str_replace($s earch, $replace, $string); </td>
       <td> 只需要使用 return 形式返回 结果即可 </td>
