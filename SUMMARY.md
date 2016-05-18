@@ -1,6 +1,6 @@
 # 目录
 
-* [前言](preface.md)
+* [前言](index.md)
 * [概述]()
     * [osCommerce简介](intro_basic.md)
     * [多语种的支持](intro_language.md)
