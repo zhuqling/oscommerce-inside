@@ -27,7 +27,8 @@
 
 替换为下面的代码:
 
-```<td class="dataTableContent" align="right">&nbsp;
+```php
+<td class="dataTableContent" align="right">&nbsp;
 <?php if (isset($pInfo) && is_object($pInfo) && ($products['products_id'] == $pInfo->products_id)) { echo tep_image(DIR_WS_IMAGES . 'icon_arrow_right.gif', ''); } else { echo '<a href="' . tep_href_link(FILENAME_CATEGORIES, 'cPath=' . $cPath . '&pID=' . $products['products_id']) . '">' . tep_image(DIR_WS_IMAGES . 'icon_info.gif', IMAGE_ICON_INFO) . '</a>'; } ?>&nbsp; <?php
 // BOF Quick Attributes
 echo '<a href="' . tep_href_link(FILENAME_PRODUCTS_ATTRIBUTES_QUICK, 'pID=' . $products['products_id'].'&cPath='.$cPath, 'NONSSL') . '">' . tep_image(DIR_WS_IMAGES . 'icon_quick_attribute.png', IMAGE_ICON_QUICK_ATTRIBUTE) . '</a>';

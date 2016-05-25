@@ -27,7 +27,7 @@ TinyMCE Anywhere 插件可以很方便地在 osCommerce 用 TinyMCE 替换掉原
 
 3、编辑产品时生效 TinyMCE,修改文件:admin/categories.php 
 
-在“<head></head>”标签内添加:
+在`<head></head>`标签内添加:
 
 ```php
 <?php // START tinyMCE Anywhere
@@ -50,7 +50,7 @@ src="includes/javascript/tiny_mce/tiny_mce.js"></script>';
 
 4、Newsletter 使用 TinyMCE,修改文件:admin/newsletters.php 
 
-在“<head></head>”标签内添加:
+在`<head></head>`标签内添加:
 
 ```php
 <!-- START tinyMCE Anywhere //--> <script language="javascript"
@@ -78,7 +78,7 @@ type="text/javascript" src="includes/javascript/tiny_mce/tiny_mce.js"></script>
 
 6、其它地址使用 TinyMCE
 
-在其它文件里使用 TinyMCE,只需要在文件的“<head></head>”标签内添加以下代码即可:
+在其它文件里使用 TinyMCE,只需要在文件的`<head></head>`标签内添加以下代码即可:
 
 ```php
 $mce_str = YOURCODEHERE // Comma separated list of textarea names

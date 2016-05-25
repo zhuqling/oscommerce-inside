@@ -8,7 +8,9 @@ osCommerce 默认的评论系统非常简单,所以我们需要加入最基本�
 
 1、执行以下 SQL 语句,扩展评论的属性,使得评论需要审核才能被显示出来
 
-`ALTER TABLE `reviews` ADD `approved` TINYINT(3) UNSIGNED DEFAULT "0"`
+```sql
+ALTER TABLE `reviews` ADD `approved` TINYINT(3) UNSIGNED DEFAULT "0"
+```
 
 2、复制以下文件到相对应的目录
 

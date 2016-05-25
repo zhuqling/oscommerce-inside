@@ -37,23 +37,22 @@ Easy Populate插件对于osCommerce来说,是管理产品的一个力器。它�
 查找代码(大概在第 25 行):
 
 ```php
-'<a href="' . tep_href_link(FILENAME_PRODUCTS_ATTRIBUTES, '', 'NONSSL') . '"
-class="menuBoxContentLink">' . BOX_CATALOG_CATEGORIES_PRODUCTS_ATTRIBUTES .
-'</a><br>' .
+'<a href="' . tep_href_link(FILENAME_PRODUCTS_ATTRIBUTES, '', 'NONSSL') . '"class="menuBoxContentLink">' . BOX_CATALOG_CATEGORIES_PRODUCTS_ATTRIBUTES . '</a><br>' .
 ```
 
 在它的下面添加如下代码:
 
 ```php
-'<a href="' . tep_href_link('easypopulate.php', '', 'NONSSL') . '"
-class="menuBoxContentLink">Easy Populate</a><br>' .
+'<a href="' . tep_href_link('easypopulate.php', '', 'NONSSL') . '"class="menuBoxContentLink">Easy Populate</a><br>' .
 ```
 
 4、复制文件/catalog/admin/includes/classes/table_block.php(注:此步骤只针对于 osCommerce RC2a 以前版本)
 
 5、执行以下 SQL 语句(注:此步骤只针对于 osCommerce RC2a 以前版本):
 
-`ALTER TABLE `products` ADD INDEX `idx_products_model` ( `products_model` );`
+```sql
+ALTER TABLE `products` ADD INDEX `idx_products_model` ( `products_model` );
+```
 
 6、调整 PHP 参数,以便实现最佳性能
 

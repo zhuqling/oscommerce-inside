@@ -9,11 +9,7 @@
 1、复制以下文件到相对应的目录
 
 - catalog/includes/functions/ajax.php
-- catalog/includes/ajax.js.php
-
-     // Social Bookmark v2
-define('FILENAME_SOCIAL_BOOKMARKS', 'social_bookmarks.php') ;
-      
+- catalog/includes/ajax.js.php      
    
 2、修改文件 catalog/address_book_process.php
 查找以下代码(大约在第 13 行): 

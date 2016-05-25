@@ -46,7 +46,7 @@
     * [可视化编辑器](rick_editor.md)
     * [多图片支持](multi_image.md)
     * [Lightbox图片效果](lightbox.md)
-    * [评论审核社交标签](comment.md)
+    * [评论审核](comment.md)
     * [社交标签](social.md)
     * [国家与省份/区列表联动](country_zone_select.md)
     * [AJAX搜索提示](ajax_search.md)

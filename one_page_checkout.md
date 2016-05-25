@@ -4,7 +4,11 @@
 
 如果能将运输方式的选择与付款方式的选择合二为一并为一个页面,并可以实现快速切换发货地址和账单地址,实时更新最终金额,那么将使流程更多顺畅,也使付款的时间缩短,从而提高用户的购物体验。这样无疑对电子商务网站是大有裨益的。
 
-为了整合付款流程。我们需要使用一个osCommerce的插件,插件的名字叫:One Page Checkout ( http://addons.oscommerce.com/info/6646 ),同时有开发人员针对One Page Checkout插件开发出了 一套自动安装的系统Autoinstaller for One Page Checkout,针对最新版本的One Page Checkout,总 会有热心的开发人员及时更新自动安装系统到最新版本。所以我们使用Autoinstaller for One Page Checkout进行安装说明。
+为了整合付款流程。我们需要使用一个osCommerce的插件,插件的名字叫:One Page Checkout ( http://addons.oscommerce.com/info/6646 ),
+
+同时有开发人员针对One Page Checkout插件开发出了一套自动安装的系统Autoinstaller for One Page Checkout,针对最新版本的One Page Checkout,总会有热心的开发人员及时更新自动安装系统到最新版本。
+
+所以我们使用Autoinstaller for One Page Checkout进行安装说明。
 
 [安装]
 

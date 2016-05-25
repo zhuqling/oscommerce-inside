@@ -14,8 +14,7 @@ Lightbox 是基于 prototype Javascript 框架的一款图片展示方案,由于
 
 ```html
 <script type="text/javascript" src="js/prototype.js"></script>
-<script type="text/javascript"
-src="js/scriptaculous.js?load=effects,builder"></script>
+<script type="text/javascript" src="js/scriptaculous.js?load=effects,builder"></script>
 <script type="text/javascript" src="js/lightbox.js"></script>
          
 <link rel="stylesheet" href="css/lightbox.css" type="text/css" media="screen" />
