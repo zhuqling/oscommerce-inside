@@ -46,6 +46,7 @@ public static function saveEntry($data) {
 
   return ( $Qcustomer->affectedRows() === 1 );
 }
+```
 
 上面的代码是保存用户资料的代码,saveEntry 方法是 osC_Account 类的一个方法。
 

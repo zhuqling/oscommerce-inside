@@ -296,7 +296,7 @@ if ($osC_Template->getCode() == DEFAULT_TEMPLATE) { //可能是出于执行性�
 > 在前面讲到的主模块 index.php 可能会返回三种结果(通过设置内部变量$_page_contents),下面 是三种情况的介绍:
 
 |  返回值 |  调用文件路径 | 说明 |
-------
+|---|---|
 |  index.php | templates/TEMPLATE_CODE/content/index/index.php | 首页的显示 |
 | category_listing.php | templates/TEMPLATE_CODE/content/index/category_listing.php | 无直属产品的分类 将显示所有下属分类 |
 | product_listing.php | templates/TEMPLATE_CODE/content/index/product_listing.php | 有产品的分类将显 示所有产品 |

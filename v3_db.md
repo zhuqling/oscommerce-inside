@@ -4,8 +4,8 @@
 默认的 osCommerce RC2.2 拥有表的数量有 47 个,而 osCommerce V3 的表数量为 57 个。
 先来介绍一下那些新增加的表
 
+| 表 | 说明 |
 |---|---|
-------
 |  administrators_access | 管理员权限控制,用于对管理员进行角色控制,限制其的访问内容 |
 | administrators_log | 管理员日志,用于记录管理员每次的操作 |
 | credit_cards | 信用卡卡号格式 |
@@ -30,13 +30,12 @@
 
 被精减的表
 
+| 表 | 说明 |
 |---|---|
--------
 | address_format |  |
 | products_attributes_download |  |
 | products_attributes | 虽然此表还存在,但用途已经改变,所以字段结构也完全不同 |
-| products_options_values_to_products_options | 此表的目的只在于方便后台管理,但与原始
-数据存在冗余,所以被删 |
+| products_options_values_to_products_options | 此表的目的只在于方便后台管理,但与原始数据存在冗余,所以被删 |
 | reviews_description | 因为一个评价只会对应一种语言,所以将 reviews_description 合并入 reviews 表 |
 
 以下是几个新增的重要表之间的关系图:

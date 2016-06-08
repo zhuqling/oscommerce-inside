@@ -3,9 +3,8 @@
 
 我将以一个表格来说明 osCommerce V3 与 osCommerce RC2.2 在文件以及目录结构上的区别
 
-|---|---|---|
----------
 |  | osCommerce V3 | osCommerce RC2.2 |
+| --- | --- |
 | 前台执行文件 | 8个 | 44个 |
 | 使用的 Javascript 库* | 3个, 目录位于:ext/ 另外还有两个有关 XMLHTTP 的 Javascript 库 , 位 于 includes/javascript/  | 无  |
 |是否有单独的产品图片文件类 | 有,并且产品图片会按图片组再 进行分类 目录位于:images/products/ | 无 |
