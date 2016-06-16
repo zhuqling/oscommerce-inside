@@ -4,10 +4,13 @@
 
 进入 osCommerce 后台,点击 modules->shipping。
 
+![](imgs/2.1-shipping-modules.png)
 
 上面显示出所有可用的运输模块,其中Sort Order有值的为已安装的模块,其它的则为尚未安装模块。
 
 点击要安装的模块名称,我们以 Zone Rates 模块为例,进行说明。 点击右边的“Install”按钮,然后点击“Edit”按钮。
+
+![](imgs/2.1-zone-rates.png)
 
 如图显示了 Zone Rates 运输模块的所有配置参数。
 
@@ -40,8 +43,11 @@ Zone Rates模块是可针对指定的国家,自定义重量与价目表来计算
 在上面,我们仅设置了美国和加拿大,才使用我们的 Zone Rates 运费表计算。
 当我们把国家设置为“American Samoa”时,可以看到 Zone Rates 的选项是不可用的。
 
+![](imgs/2.1-shipping-method-1.png)
 
 当我们把国家改为美国时,Zone Rates 选项便可选了。
+
+![](imgs/2.1-shipping-method-2.png)
 
 ### 自定义模块功能
 
@@ -79,6 +85,8 @@ $this->num_zones = 1;
 ```
 
 将上面的“1”改为想要扩展的数目,如“3”,我们可以看到修改后的效果。
+
+![](imgs/2.1-zone-rates-custom.png)
 
 > 提示:
 > 修改过扩展数量后,需要先 Remove 模块,然后重新安装它,否则会出现下面的现象,扩展的参数不会生效。

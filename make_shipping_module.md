@@ -13,6 +13,8 @@
 -  自定义排序号
 
 下面是 flytexpress 模块的参数表:
+
+![](imgs/2.2-flytexpress.png)
  
 ### 运输模块
 
@@ -166,4 +168,6 @@ Estimates: 2 - 6 days to major destinations.');
 > Flytexpress的web service使用千克为单位,而在此处我们使用的单位是克,所以第99行处使用了单位换算。将原来的克换算成千克,然后将重量传给 Web Service。
 
 我们来看最终的显示效果:
+
+![](imgs/2.2-shipping-method-flyt.png)
 

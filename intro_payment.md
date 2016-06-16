@@ -1,5 +1,7 @@
 ## 付款流程介绍
 
+![目录结构](imgs/1.2-payflow.png)
+
 osCommerce 支付的流程是:
 
 1. 用户选择发货方式/物流方式(shipping method),选择不同的发货方式将会自动计算出相应的
