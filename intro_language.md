@@ -4,6 +4,8 @@
 
 ### 界面
 
+![目录结构](imgs/1.2-dir-structure.png)
+
 如图所示为 osCommerce 的目录结构, 所有执行文件位于根目 录 www,所有语言文件位于“includes/languages/LANGUAGE/”里, 其中的 LANGUAGE 为语言的名称,如 english,chinese,french 等。 为了实现方便的语言切换,osCommerce 实现的是文件名对应制, 即语言文件的名称与执行文件一致(这是一种通用且实用的处理方 法,实际上系统并未对此做严格限制,下面的代码将说明这一点)。
 
 下面以 address_book 地址簿为例来说明多语言切换的运行原理。
